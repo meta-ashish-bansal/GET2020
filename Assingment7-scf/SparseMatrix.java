@@ -125,52 +125,5 @@ public class SparseMatrix {
 		return newMatrix;
 	}
 
-	/*	public void print(){
-		for(int i=0;i<matrixLoc.length;i++){
-			System.out.println("obj : " + i);
-			System.out.println("row : "+matrixLoc[i].row + " col : " + matrixLoc[i].col + " value : "+matrixLoc[i].value);
-		}
-	}
 
-	public static void main(String[] args){
-		int[][] arr = 
-				{{5,0,3},
-				{2,0,0},
-				{1,0,0}};
-		SparseMatrix s1 = new SparseMatrix(arr);
-		int[][] b = s1.transposeOfMatrix();
-
-		for(int i=0;i<b.length;i++){
-			for(int j=0; j<b[0].length;j++){
-				System.out.print(" " + b[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-		int[][] brr = 
-			{{0,0,0,1},
-			{2,3,0,0},
-			{1,0,1,0}};
-		SparseMatrix s2 = new SparseMatrix(brr);
-
-		boolean check = s1.checkSymmetric();
-		System.out.println(check);
-
-		b = s1.addMatrix(s1, s2);
-		for(int i=0;i<b.length;i++){
-			for(int j=0; j<b[0].length;j++){
-				System.out.print(" " + b[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-		System.out.println("---------multiply----------");
-		b = s1.multiplyMatrix(s1, s2);
-		for(int i=0;i<b.length;i++){
-			for(int j=0; j<b[0].length;j++){
-				System.out.print(" " + b[i][j] + " ");
-			}
-			System.out.println();
-		}
-	}*/
 }
