@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vehicle Registration Form
+    </title>
+    <script>
+        var vehicleType;
+
+        function checkPassword() {
+            var password = document.getElementById("pass").value;
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            if (password.match(passw)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkPass() {
+            var password = document.getElementById("pass").value;
+            var repassword = document.getElementById("rePass").value;
+            var passwordLen = password.length;
+            var repasswordLen = repassword.length;
+            if (password == repassword) {
+                if (passwordLen < 8) {
+                    alert("Password length must be 8 or more than 8 ");
+                } else {
+                    if (checkPassword() == false) {
+                        alert("Password length must be 8 or more than 8 and Please use Uppercase,Lowercase and Digit also.");
+                    } else {
+                        return true;
+                    }
+                }
+            } else {
+                alert("password and confirm password should be same.");
+                return false;
+            }
+        }
+
+        function checkName() {
+            var name = document.getElementById("empName").value;
+            var nameLen = name.length;
+            var check = /[a-zA-Z][a-zA-Z ]+[a-zA-Z]$/;
+            if (name == "" || nameLen < 2 || !(check.test(name))) {
+                alert("Please Enter Correct Name ");
+                return false;
+            } else
+                return true;
+        }
+
+        function checkEmail() {
+            var email = document.getElementById("empEmail").value;
+            var num = document.getElementById("number").value;
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                return (true)
+            } else {
+                alert("You have entered an invalid email address!")
+                return (false)
+            }
+        }
+
+        function checkNumber() {
+            var num = document.getElementById("number").value;
+            if (num.length < 8) {
+                alert("Please Enter Valid Mobile Number.");
+                return false;
+            } else
+                return true;
+
+        }
+
+        function check() {
+            if (checkName() && checkEmail() && checkPass() && checkNumber()) {
+                document.getElementById("regForm").innerHTML = "<h1><b> You Have Succesfully Registerd</b> </h1> <br><h2>Now Register Your Vehicle Details :-</h2>";
+                document.getElementById("vehicleRegister").style.display = "block";
+            }
+        }
+
+        function RegisterVehicle() {
+            vehicleType = document.getElementById("vehicleType").value;
+            document.getElementById("vehicleRegister").innerHTML = "<h1><b> Your vehicle Has Succesfully Registerd</b> </h1> <br>";
+            document.getElementById("billGenerate").style.display = "block";
+            if(vehicleType =="cycle")
+            {
+                dailyPrice = 5;
+                monthlyPrice = 100;
+                yearlyPrice = 500;
+            }
+            else if(vehicleType =="motorCycle")
+            {
+                dailyPrice = 10;
+                monthlyPrice = 200;
+                yearlyPrice = 1000;
+            }
+            else if(vehicleType=="fourWheelers")
+            {
+                dailyPrice = 20;
+                monthlyPrice = 500;
+                yearlyPrice = 3500;
+            }
+            document.getElementById('dailyPrice').innerHTML = dailyPrice;
+            document.getElementById('monthlyPrice').innerHTML = monthlyPrice;
+            document.getElementById('yearlyPrice').innerHTML = yearlyPrice; 
+        }
+
+        function bill() {
+            
+            var passType, currency;
+            var amount;
+            
+            if (document.getElementById("daily").checked) {
+                passType = document.getElementById("daily").value;
+            } else if (document.getElementById("monthly").checked) {
+                passType = document.getElementById("monthly").value;
+            } else {
+                passType = document.getElementById("yearly").value;
+            }
+            if (vehicleType == "cycle") {
+                if (passType == "daily") {
+                    amount = 5;
+                } else if (passType == "monthly") {
+                    amount = 100;
+                } else
+                    amount = 500;
+            } else if (vehicleType == "motorCycle") {
+                if (passType == "daily") {
+                    amount = 10;
+                } else if (passType == "monthly") {
+                    amount = 200;
+                } else
+                    amount = 1000;
+            } else {
+                if (passType == "daily") {
+                    amount = 20;
+                } else if (passType == "monthly") {
+                    amount = 500;
+                } else
+                    amount = 3500;
+            }
+            if (document.getElementById("inr").checked) {
+                currency = document.getElementById("inr").value;
+            } else if (document.getElementById("usd").checked) {
+                currency = document.getElementById("usd").value;
+            } else {
+                currency = document.getElementById("yen").value;
+            }
+            if (currency == "inr") {
+                alert("Please Pay " + amount + " ");
+            } else if (currency == "usd") {
+                amount *= (0.014);
+                alert("Please Pay " + amount + " ");
+            } else {
+                amount *= 1.52;
+                alert("Please Pay " + amount + " ");
+            }
+            document.getElementById("billGenerate").innerHTML = "<h1><b> Thank You</b> </h1> <br>";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="regForm">
+        <h1 style="text-align: center;">Registration Form</h1>
+        <table align="center" border="2px" cellspacing="15">
+            <tr>
+                <td>
+                    <label><b>Name</b></label><br>
+                </td>
+                <td>
+                    <input id="empName" type="text" placeholder="Enter Full Name" name="empName" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Gender</b></label><br>
+                </td>
+                <td>
+                    <input type="radio" name="gender" />Male
+                    <input type="radio" name="gender" />Female<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Email</b></label><br>
+                </td>
+                <td>
+                    <input id="empEmail" type="email" placeholder="Enter Email id" name="empEmail" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Password</b></label><br>
+                </td>
+                <td>
+                    <input id="pass" type="password" placeholder="Enter Password" name="pass" required/><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Confirm Password</b></label><br>
+                </td>
+                <td>
+                    <input id="rePass" type="password" placeholder="Confirm Password" name="rePass" required/><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Contact No.</b></label><br>
+                </td>
+                <td>
+                    <input id="number" type="text" placeholder="Enter Mob. No." name="number" required/><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="check()">Next</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="vehicleRegister" style="display: none;">
+        <h1 style="text-align: center;">Vehicle Form</h1>
+        <table align="center" border="2px" cellspacing="15">
+            <tr>
+                <td>
+                    <label><b>Vehicle Name</b></label><br>
+                </td>
+                <td>
+                    <input id="vehicleName" type="text" placeholder="Enter Vehicle Name" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Vehicle Type</b></label><br>
+                </td>
+                <td>
+                    <select id="vehicleType">
+                        <option value="cycle">Cycle</option>
+                        <option value="motorCycle">Motor Cycle</option>
+                        <option value="fourWheelers">Four Wheelers</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Vehicle Number</b></label><br>
+                </td>
+                <td>
+                    <input id="vehicleNo" type="text" placeholder="Enter Vehicle Number" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Employee Id</b></label><br>
+                </td>
+                <td>
+                    <input id="empId" type="text" placeholder="Enter Emploid Id" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Identification</b></label><br>
+                </td>
+                <td>
+                    <textarea placeholder="Description"></textarea><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="RegisterVehicle()">Next</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="billGenerate" style="display: none;">
+        <h1 style="text-align: center;">Get Pass</h1>
+        <table align="center" border="2px" cellspacing="15">
+            <tr>
+                <td>
+                    <label>Daily :- </label><br>
+                    <label >Monthly :- </label><br>
+                    <label >Yearly :- </label><br>
+                    </td>
+                <td>
+                    <label id="dailyPrice">Daily :- </label><br>
+                    <label id="monthlyPrice">Monthly :- </label><br>
+                    <label id="yearlyPrice">Yearly :- </label><br>
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Pass Type</b></label><br>
+                </td>
+                <td>
+                    <input type="radio" id="daily" name="passType" value="daily" required>Daily
+                    <input type="radio" id="monthly" name="passType" value="monthly" required>Monthly
+                    <input type="radio" id="yearly" name="passType" value="yearly" required>Yearly<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Cash Mode</b></label><br>
+                </td>
+                <td>
+                    <input type="radio" id="inr" name="cashType" value="inr" required>INR
+                    <input type="radio" id="usd" name="cashType" value="usd" required>USD
+                    <input type="radio" id="yen" name="cashType" value="yen" required>YEN<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="bill()">Get Bill</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+
+</html>
