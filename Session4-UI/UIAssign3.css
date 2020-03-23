@@ -1,0 +1,175 @@
+#head   
+{
+   background-image: url(homebg.png);
+   background-size: 100% 100%;
+}
+
+#header
+{
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+    padding-top: 0;
+    justify-content: space-around;
+}
+
+#header section img,i{
+    padding-top: 20px;
+}
+#header nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    padding-top: 20px;
+    margin:0;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    padding: 20px;
+}
+#header section i{
+    padding:20px;
+}
+a:hover{
+    background-color: blanchedalmond;
+}
+i:hover{
+    background-color: burlywood;
+}
+
+.below{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+
+}
+.below p{
+    
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    flex-wrap: nowrap;
+    width: 60%;
+}
+.below section input{
+    padding: 10px 20px;
+
+}
+#download
+{
+    color: white;
+    background-color: red;
+    border: 0;
+    border-radius: 3px;
+}
+#feature
+{   background-color: darkblue;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+}
+body{
+    margin: 0 0;
+}
+#featurearticle
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    justify-content: space-evenly;
+    color: rgb(211, 208, 208);
+}
+
+#featurearticle header
+{
+    color: darkcyan;
+
+}
+#mainHeading,#screenshots,#review
+{
+    font-weight: bold;
+    font-size: 40px;
+    color: blue;
+    text-align: center;
+    margin-top: 50px;
+}
+p
+{
+    text-align: center;
+    margin-top: 0px;
+}
+#subHeadingContent h1
+{
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+#subHeadingContent 
+{
+    margin-right: 50px;
+}
+#subHeadingContent p
+{
+    text-align: left;
+
+}
+#testimage
+{
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+    width: 50%;
+    margin-top: 30px;
+}
+#mainSection
+{
+    displaY:flex;
+    flex-direction: column;
+}
+#childSection
+{
+    displaY:flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    justify-content: space-evenly;
+
+}
+#childSection section p
+{
+    flex-wrap: nowrap;
+    width: 40%;
+    text-align: left;
+    color: rgb(211, 208, 208);
+}
+#mainReview
+{
+    displaY:flex;
+    flex-direction: column;
+}
+#childReview
+{
+    displaY:flex;
+    flex-direction: row;  
+}
+
+
+#downloadarticle
+{
+    background-color: blue;
+}
+footer div
+{
+    height: 1px;
+    background-color: grey;
+}
+footer
+{
+    background-color: #2b3856;
+}
