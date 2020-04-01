@@ -1,0 +1,11 @@
+spring:
+ mvc:
+   view:
+     prefix: /pages/
+     suffix: .jsp
+ datasource:    url: jdbc:mysql://localhost:3306/ParkingSystem
+    username: root
+    password: 123
+     
+home:
+ message: Welcome To Metacube Parking System
