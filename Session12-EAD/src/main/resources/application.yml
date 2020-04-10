@@ -1,0 +1,8 @@
+spring:
+ mvc:
+   view:
+     prefix: /pages/
+     suffix: .jsp
+     
+home:
+ message: Welcome To Metacube Parking System
