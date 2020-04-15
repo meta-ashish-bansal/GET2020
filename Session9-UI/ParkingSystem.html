@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube Parking System</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Validation.js"></script>
+
+</head>
+
+<body>
+    <!--Top nav bar-->
+    <div class="topnav">
+        <a class="active" href="#addEmployee">Add Employee</a>
+        <a href="#addVehicle">Add Vehicle</a>
+        <a href="#pricing">Pricing</a>
+    </div>
+
+    <h1> Welcome To Metacube Parking System </h1>
+
+    <!--Image-->
+    <img src="car.jpg" alt="Covering Image" width="100%">
+
+    <!--Add Employee toggle button-->
+    <input type="button" class="toggle" onClick="display('addEmployee')" id="addEmployeeButton"
+        value="Add Employee"></button>
+
+    <!--Add Employee Form-->
+    <div id="addEmployee">
+        <form id="personDetails">
+            <h2>Person Details</h2>
+            <div id="divFullName">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
+                <input type="button" value="Next" onclick="validateName()">
+            </div>
+            <div id="divGender">
+                <label for="male" id="genderLabel"></label>
+                <label><input type="radio" name="gender" id="male" value="Male" required>Male</label>
+                <label><input type="radio" name="gender" id="female" value="Female">Female</label>
+                <input type="button" value="Next" onclick="validateGender()">
+            </div>
+            <div id="divEmail">
+                <label for="email" id="emailLabel"></label>
+                <input type="email" name="email" id="email" placeholder="Email Id" required>
+                <input type="button" value="Next" onclick="validateEmail()">
+            </div>
+            <div id="divPassword">
+                <label for="password" id="passwordLabel"></label>
+                <input type="password" id="password" name="password" placeholder="Password" required
+                    onkeyup="checkPassword()">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+                    required>
+                <input type="button" id="passwordButton" value="Next" onclick="validatePassword()">
+            </div>
+
+            <div id="divContactNumber">
+                <label for="contactNumber" id="contactNumberLabel"></label>
+                <input type="number" name="contactNumber" id="contactNumber" pattern="[1-9]{1}[0-9]{9}"
+                    placeholder="Contact Number" required>
+                <input type="button" value="Next" onclick="validateContactNumber()">
+            </div>
+        </form>
+    </div>
+
+    <!--Add Vehicle toggle button-->
+    <input type="button" class="toggle" onClick="display('addVehicle')" id="addVehicleButton"
+        value="Add Vehicle"></button>
+
+
+    <!--Add vehicle-->
+    <div id="addVehicle">
+        <form id="vehicleDetails">
+            <h2> Vehicle Form </h2>
+            <div id="divVehicleName">
+                <label>Employee Id</label>
+                <text id="empId"></text><br>
+                <label for="vehicleName" id="vehicleNameLabel"></label>
+                <input type="text" name="vehicleName" id="vehicleName" placeholder="Vehicle Name" required>
+                <input type="button" value="Next" onclick="validateVehicleName()">
+            </div>
+            <div id="divVehicleType">
+                <label for="cycle" id="vehicleTypeLabel"></label><br>
+                <label><input type="radio" name="vehicleType" id="cycle" value="Cycle" required>Cycle</label>
+                <label><input type="radio" name="vehicleType" id="motorCycle" value="Motor Cycle">Motor Cycle</label>
+                <label><input type="radio" name="vehicleType" id="fourWheeler" value="Four Wheeler">Four
+                    Wheelers</label>
+                <input type="button" value="Next" onclick="validateVehicleType()">
+
+            </div>
+            <div id="divVehicleNumber">
+                <label for="vehicleNumber" id="vehicleNumberLabel"></label>
+                <input type="text" name="vehicleNumber" id="vehicleNumber" placeholder="Vehicle Number" required>
+                <input type="button" value="Next" onclick="validateVehicleNumber()">
+            </div>
+            <div id="divVehicleIdentification">
+                <label for="vehicleIdentification" id="vehicleIdentificationLabel"></label>
+                <textarea id="vehicleIdentification" name="vehicleIdentification"
+                    placeholder="Enter Vehicle Identification" required></textarea><br>
+                <input type="button" value="Go" onclick="validateVehicleIdentifictaion()">
+            </div>
+        </form>
+
+    </div>
+    <!--Pricing toggle button-->
+    <input type="button" class="toggle" onClick="display('pricing')" id="pricingButton" value="Pricing"></button>
+
+    <!--Pricing-->
+    <div id="pricing">
+        <label id="pricingLabel"></label>
+        <!-- Cycle Pricing -->
+        <div id="pass" class="price">
+            <h2 id="showVehicleType"></h2>
+            <text id="passValue"></text><br>
+            <select id="passType" onchange="updatePassPrice()">
+                <option value="Daily">Daily</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+            </select>
+            <select id="currencyType" onchange="updatePassPrice()">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="YEN">YEN</option>
+            </select><br>
+            <input type="button" value="Purchase Now" onclick="finalPassPrice()" />
+        </div>
+        <div id="finalPass" class="price">
+            <text id="showfinalVehicleType"></text><br>
+            <text id="showfinalPassType"></text><br>
+            <text id="showfinalPassValue"></text><br>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+</body>
+
+
+</html>
